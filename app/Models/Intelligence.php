@@ -13,6 +13,8 @@ class Intelligence extends Model
         'focus_img_url',
         'summary',
         'content',
+        'author',
+        'editor',
         'status'
     ];
 }

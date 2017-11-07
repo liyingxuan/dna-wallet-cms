@@ -39,15 +39,22 @@
                             <th>摘要</th>
                             {{--<th>头图</th>--}}
                             {{--<th>内容</th>--}}
+                            <th>作者-修改者</th>
                             <th>管理操作</th>
                         </tr>
                         @forelse($data as $item)
                             <tr>
                                 <td class="col-md-1">{{$item->id}}</td>
                                 <td class="col-md-2">{{$item->title}}</td>
-                                <td class="col-md-8">{{$item->summary}}</td>
+                                <td class="col-md-7">{{$item->summary}}</td>
                                 {{--<td><img src="{{$item->focus_img_url}}" style="width: 150px;"></td>--}}
                                 {{--<td class="col-md-2">{{$item->content}}</td>--}}
+                                <td class="col-md-1">
+                                    <strong>{{$item->author}}</strong>
+                                    @if($item->editor != '')
+                                        - {{$item->editor}}
+                                    @endif
+                                </td>
                                 <td class="col-md-1">
                                     <a class="btn btn-info" href="{{URL::to('intelligence/'.$item->id.'/edit')}}">
                                         编辑

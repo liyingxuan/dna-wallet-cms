@@ -67,6 +67,7 @@ class IntelligenceController extends Controller
             'title' => $request['title'],
             'summary' => $request['summary'],
             'content' => $request['content'],
+            'author' => \Auth::user()->name,
             'status' => '启用'
         ];
 
@@ -132,6 +133,7 @@ class IntelligenceController extends Controller
         $data->summary = $request['summary'];
 //        $data->focus_img_url = $focusImgUrl;
         $data->content = $request['content'];
+        $data->editor = \Auth::user()->name;
 
         try {
             $data->save();
