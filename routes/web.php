@@ -17,9 +17,8 @@ Route::group(['namespace' => 'Backend', 'middleware' => ['auth', 'Entrust']], fu
     Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
 });
 
-Route::group([], function () {
-    Auth::routes();
-});
+Auth::routes();
+Route::get('logout', 'Auth\LoginController@logout');
 
 Route::group(['namespace' => 'Business', 'middleware' => ['auth', 'Entrust']], function () {
     Route::resource('intelligence', 'IntelligenceController');
